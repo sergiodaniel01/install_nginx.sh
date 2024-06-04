@@ -1,0 +1,21 @@
+#! /bin/bash
+
+#Actualizar la lista de paquetes disponibles
+sudo apt update
+
+#Instalar Nginx
+sudo apt install -y nginx
+
+#Comprobar si Nginx se instalo correctamente
+if[ $? -eq 0 ]; then
+	echo "Nginx se ha instalado correctamente"
+else
+	echo "Ha ocurrido un error durante la instalacion de Nginx. Por favor, comprueba los registros para mas detalles. "
+	exit 1
+fi
+
+# Iniciar el servidor de Nginx
+sudo systemctl start nginx
+
+# Habilitar Nginx para que se inicie automaticamente en el arranque
+
